@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :stripe do
+    resources :payment_methods, only: %i[create]
+  end
+
   get "/credentials/stripe", to: "credentials#stripe"
   
   resources :books
