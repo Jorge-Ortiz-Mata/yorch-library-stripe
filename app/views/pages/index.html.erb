@@ -3,4 +3,15 @@
   <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
   <p>User: <%= current_user.email %></p>
   <p>ID: <%= current_user.customer_stripe_id %></p>
+
+  <section data-controller="stripe">
+    <h2>Payment Methods</h2>
+    <div>
+      <h5>Add payment Method</h5>
+      <form class="flex flex-col gap-5" id="payment-method-form" data-controller="stripe">
+        <div id="card-element" class="border rounded-xl p-3"></div>
+        <button class="border px-4 py-2 rounded-xl">Save</button>
+      </form>
+    </div>
+  </section>
 </div>
