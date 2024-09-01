@@ -21,6 +21,10 @@
   <body>
     <p class="text-green-600 font-bold text-lg"><%= notice %></p>
     <p class="text-red-600 font-bold text-lg"><%= alert %></p>
+    <nav class="flex items-center gap-5 p-5">
+      <%= link_to "Home", root_path, class: "font-semibold text-lg" %>
+      <%= link_to "Books", books_path, class: "font-semibold text-lg" %>
+    </nav>
     <main class="p-5">
       <%= yield %>
     </main>
