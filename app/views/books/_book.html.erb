@@ -1,0 +1,11 @@
+<div id="<%= dom_id book %>" class="flex gap-5 items-start">
+  <p>
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= book.name %>
+  </p>
+  <p>
+    <strong class="block font-medium mb-1">Product Stripe ID:</strong>
+    <%= book.product_stripe_id %>
+  </p>
+  <%= link_to "Show this book", book, class: "text-blue-500 underline" %>
+</div>
