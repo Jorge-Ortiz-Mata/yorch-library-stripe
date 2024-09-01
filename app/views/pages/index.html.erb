@@ -1,0 +1,5 @@
+<div>
+  <h1 class="font-bold text-4xl">Pages#index</h1>
+  <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+  <p><%= current_user.email %></p>
+</div>
