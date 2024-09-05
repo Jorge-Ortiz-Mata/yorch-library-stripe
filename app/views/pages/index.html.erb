@@ -1,17 +1,40 @@
-<div>
-  <h1 class="font-bold text-4xl">Pages#index</h1>
-  <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
-  <p>User: <%= current_user.email %></p>
-  <p>ID: <%= current_user.customer_stripe_id %></p>
+<div class="flex flex-col gap-10">
+  <div>
+    <h1 class="font-bold text-4xl">Pages#index</h1>
+    <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+    <p>User: <%= current_user.email %></p>
+    <p>ID: <%= current_user.customer_stripe_id %></p>
+  </div>
 
-  <section data-controller="stripe">
-    <h2>Payment Methods</h2>
+  <section data-controller="stripe" class="flex flex-col gap-3.5">
+    <h2 class="text-xl font-bold">Payment Methods</h2>
     <div>
       <h5>Add payment Method</h5>
       <form class="flex flex-col gap-5" id="payment-method-form" data-controller="stripe">
         <div id="card-element" class="border rounded-xl p-3"></div>
         <button class="border px-4 py-2 rounded-xl">Save</button>
       </form>
+    </div>
+    <hr>
+    <div>
+      <h5>Your payment methods</h5>
+      <hr>
+      <% @payment_methods.each do |payment_method| %>
+        <div class="flex flex-col gap-3 border rounded p-3 shadow">
+          <p>
+            ID: <%= payment_method.id %>
+          </p>
+          <p>
+            Marca: <%= payment_method.card.brand %>
+          </p>
+          <p>
+            Pais: <%= payment_method.card.country %>
+          </p>
+          <p>
+            Last for digits: <%= payment_method.card.last4 %>
+          </p>
+        </div>
+      <% end %>
     </div>
   </section>
 </div>

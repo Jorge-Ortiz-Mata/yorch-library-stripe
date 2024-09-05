@@ -11,5 +11,11 @@ module YorchStripe
 
       Stripe::PaymentMethod.attach(@payment_method_id, { customer: @customer_id })
     end
+
+    def self.get_payment_methods(customer_id)
+      Stripe.api_key = Rails.application.credentials.stripe.secret_key
+
+      Stripe::Customer.list_payment_methods(customer_id)
+    end
   end
 end
